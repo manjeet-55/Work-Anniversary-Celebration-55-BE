@@ -53,4 +53,4 @@ const sendEmail = (email, magicLink) => {
   });
 };
 
-module.exports = { sendBirthdayEmails };
+export default sendBirthdayEmails;

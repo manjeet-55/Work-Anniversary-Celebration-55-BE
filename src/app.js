@@ -1,6 +1,6 @@
-const express = require("express");
-const userRoutes = require("./routes/userRoutes");
-const { sendBirthdayEmails } = require("./services/EmailService");
+import express from "express";
+import userRoutes from "./routes/userRoutes.js";
+import sendBirthdayEmails from "./services/EmailService.js";
 
 const app = express();
 
@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-// app.use("/api/users", userRoutes);
+app.use("/api/users", userRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -18,7 +18,7 @@ app.use((err, req, res, next) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 6969;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
