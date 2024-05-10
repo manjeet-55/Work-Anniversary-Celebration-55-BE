@@ -1,8 +1,8 @@
 import supabase from "../utils/supabase.js";
 
-const UserService = () => {
+const UserServices = () => {
   const getAllUsers = async () => {
-    const { data, error } = await supabase.from("users").select("*");
+    const { data, error } = await supabase.from("Users").select("*");
     if (error) {
       throw new Error("Error fetching users");
     }
@@ -31,7 +31,6 @@ const UserService = () => {
     }
     return data;
   };
-
   const updateUser = async (userId, userData) => {
     const { data, error } = await supabase
       .from("users")
@@ -53,11 +52,11 @@ const UserService = () => {
 
   return {
     getAllUsers,
-    getUserById,
     createUser,
-    updateUser,
     deleteUser,
+    getUserById,
+    updateUser
   };
 };
 
-export default UserService
+export default UserServices;

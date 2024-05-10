@@ -1,8 +1,9 @@
-import UserService from "../services/UserService.js"
+import UserServices from "../services/UserService.js";
+const userFunctions = UserServices();
 
 export const getAllUsers = async (req, res, next) => {
   try {
-    const users = await UserService.getAllUsers();
+    const users = await userFunctions.getAllUsers();
     res.json(users);
   } catch (error) {
     next(error);
@@ -47,4 +48,3 @@ export const deleteUser = async (req, res, next) => {
     next(error);
   }
 };
-

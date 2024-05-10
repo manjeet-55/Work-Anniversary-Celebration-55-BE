@@ -1,7 +1,6 @@
 
 import nodemailer from "nodemailer";
 import jwt from "jsonwebtoken";
-import UserService from "./UserService.js";
 import {tokenSecret} from "../config.js"
 const transporter = nodemailer.createTransport({
   service: "Gmail",
