@@ -1,6 +1,6 @@
-const { UserService } = require("../services/UserService");
+import UserService from "../services/UserService.js"
 
-const getAllUsers = async (req, res, next) => {
+export const getAllUsers = async (req, res, next) => {
   try {
     const users = await UserService.getAllUsers();
     res.json(users);
@@ -9,7 +9,7 @@ const getAllUsers = async (req, res, next) => {
   }
 };
 
-const getUserById = async (req, res, next) => {
+export const getUserById = async (req, res, next) => {
   try {
     const { id } = req.params;
     const user = await UserService.getUserById(id);
@@ -19,7 +19,7 @@ const getUserById = async (req, res, next) => {
   }
 };
 
-const createUser = async (req, res, next) => {
+export const createUser = async (req, res, next) => {
   try {
     const newUser = await UserService.createUser(req.body);
     res.status(201).json(newUser);
@@ -28,7 +28,7 @@ const createUser = async (req, res, next) => {
   }
 };
 
-const updateUser = async (req, res, next) => {
+export const updateUser = async (req, res, next) => {
   try {
     const { id } = req.params;
     const updatedUser = await UserService.updateUser(id, req.body);
@@ -38,7 +38,7 @@ const updateUser = async (req, res, next) => {
   }
 };
 
-const deleteUser = async (req, res, next) => {
+export const deleteUser = async (req, res, next) => {
   try {
     const { id } = req.params;
     await UserService.deleteUser(id);
@@ -48,10 +48,3 @@ const deleteUser = async (req, res, next) => {
   }
 };
 
-module.exports = {
-  getAllUsers,
-  getUserById,
-  createUser,
-  updateUser,
-  deleteUser,
-};

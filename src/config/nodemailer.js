@@ -1,6 +1,6 @@
 // src/config/mailer.js
-const nodemailer = require("nodemailer");
-
+// const nodemailer = require("nodemailer");
+import nodemailer from "nodemailer";
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -9,4 +9,4 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-module.exports = { transporter };
+export default transporter

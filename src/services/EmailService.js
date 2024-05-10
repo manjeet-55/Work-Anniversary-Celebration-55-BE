@@ -1,9 +1,8 @@
-const nodemailer = require("nodemailer");
-const jwt = require("jsonwebtoken");
 
-const UserService = require("./UserService");
-const { tokenSecret } = require("../config");
-
+import nodemailer from "nodemailer";
+import jwt from "jsonwebtoken";
+import UserService from "./UserService.js";
+import {tokenSecret} from "../config.js"
 const transporter = nodemailer.createTransport({
   service: "Gmail",
   auth: {
@@ -13,16 +12,16 @@ const transporter = nodemailer.createTransport({
 });
 
 const sendBirthdayEmails = async () => {
-  try {
-    const users = await UserService.getUsersWithBirthdayToday();
+  // try {
+  //   // const users = await UserService.getUsersWithBirthdayToday();
 
-    users.forEach((user) => {
-      const magicLink = generateMagicLink(user);
-      sendEmail(user.email, magicLink);
-    });
-  } catch (error) {
-    console.error("Error sending birthday emails:", error);
-  }
+  //   users.forEach((user) => {
+  //     const magicLink = generateMagicLink(user);
+  //     sendEmail(user.email, magicLink);
+  //   });
+  // } catch (error) {
+  //   console.error("Error sending birthday emails:", error);
+  // }
 };
 
 const generateMagicLink = (user) => {

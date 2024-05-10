@@ -1,2 +1,1 @@
-const tokenSecret = "your-secret-key";
-module.exports = tokenSecret;
+export const tokenSecret = "your-secret-key";

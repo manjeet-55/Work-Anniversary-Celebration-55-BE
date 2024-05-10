@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A birthday reminder application",
   "main": "src/app.js",
+  "module": "module",
   "scripts": {
     "start": "nodemon src/app.js"
   },
